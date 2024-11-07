@@ -38,8 +38,6 @@ class program
                 Console.WriteLine(words[i]);
             }
         }
-        
-
     }
 }
 
@@ -78,8 +76,52 @@ class program
         {
             Console.WriteLine("строка не является палндромом");
         }
+    }
+}
 
+//дано n строк, выдать только те строки, в которых кол-во гласных букв больше, чем кол-во согласных
 
+using System.Security.Cryptography.X509Certificates;
+
+class program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Введмте количество строк");
+        int n = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введите строки");
+        for (int i = 0; i < n; i++)
+        {
+            int gl = 0; int sogl = 0;
+            string s = Console.ReadLine();
+            const string glasn = "УуЕеЫыАаОоЭэЯяИиЮю";
+            const string soglasn = "ЙйЦцКкНнГгШшЩщЗзХхЪъЖжДдЛлРрПпВвФфЧчСсМмТтЬьБб";
+            for (int j = 0; j < s.Length; j++)
+            {
+                for (int k = 0; k < glasn.Length; k++)
+                {
+                    if (s[j] == glasn[k])
+                    {
+                        gl++;
+                    }
+                }
+                for (int k = 0; k < soglasn.Length; k++)
+                {
+                    if (s[j] == soglasn[k])
+                    {
+                        sogl++;
+                    }
+                }
+            }
+            if (gl == sogl)
+            {
+                Console.WriteLine($"В строке \"{s}\" одинаковое количество согласных и гласных");
+            }
+            else
+            {
+                Console.WriteLine("В введенной строке количество гласных и согласных не одинаково");
+            }
+        }   
     }
 }
 
